@@ -1,0 +1,27 @@
+<%= form_for(harfile) do |f| %>
+  <% if harfile.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(harfile.errors.count, "error") %> prohibited this harfile from being saved:</h2>
+
+      <ul>
+      <% harfile.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :contents, "HAR File" %>
+    <%= f.file_field :contents %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

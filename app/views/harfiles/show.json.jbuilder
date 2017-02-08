@@ -1,0 +1,1 @@
+json.partial! "harfiles/harfile", harfile: @harfile

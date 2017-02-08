@@ -1,0 +1,13 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @harfile.name %>
+</p>
+<p>
+  <strong>Contents:</strong>
+  <%= @harfile.contents %>
+</p>
+
+<%= link_to 'Edit', edit_harfile_path(@harfile) %> |
+<%= link_to 'Back', harfiles_path %>

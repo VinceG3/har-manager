@@ -1,0 +1,2 @@
+module HarfilesHelper
+end
