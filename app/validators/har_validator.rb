@@ -13,14 +13,14 @@ class HarValidator < ActiveModel::Validator
   end
 
   def no_log?
-    json.dig('log').blank?
+    json.dig('log').blank? rescue false
   end
 
   def no_version?
-    json.dig('log', 'version').blank?
+    json.dig('log', 'version').blank? rescue false
   end
 
   def no_entries?
-    json.dig('log', 'entries').blank?
+    json.dig('log', 'entries').blank? rescue false
   end
 end

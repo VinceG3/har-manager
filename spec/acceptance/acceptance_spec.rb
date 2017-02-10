@@ -107,12 +107,6 @@ RSpec.feature 'Acceptance' do
     end
   end
 
-  describe 'encoding bug'
-  describe 'HarValidator'
-  describe 'Harfile model unit tests'
-
-  describe 'Use UnQLite to store Harfiles'
-  describe 'Pretty Printing Harfile contents'
   describe 'Use ElasticSearch to store Harfiles'
   describe 'Use Bootstrap for page styling'
 end

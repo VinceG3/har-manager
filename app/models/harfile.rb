@@ -5,6 +5,10 @@ class Harfile < ApplicationRecord
     JSON.parse(contents)
   end
 
+  def pretty_contents
+    JSON.pretty_generate(json_contents)
+  end
+
   def requests
     json_contents
       .dig('log', 'entries')

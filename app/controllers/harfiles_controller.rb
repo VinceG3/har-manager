@@ -62,21 +62,23 @@ class HarfilesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
     def set_harfile
       @harfile = Harfile.find(params[:id])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
     def harfile_params
       params.require(:harfile).permit(:name).merge(
         contents: utf8_data
       )
     end
 
+    def content_tempfile
+      params['harfile']['contents'].try(:tempfile)
+    end
+
     def utf8_data
-      content_param = params['harfile']['contents']
-      return nil if content_param.blank?
-      File.open(content_param.tempfile.path, 'r:UTF-8', &:read)
+      return nil if content_tempfile.blank?
+      # return content_tempfile.read # this way fails
+      File.open(content_tempfile.path, 'r:UTF-8', &:read)
     end
 end
