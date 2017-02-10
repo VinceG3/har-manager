@@ -1,28 +1,25 @@
 == README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is my HAR archive management app assignment. The specs called for
+RESTful routes for HAR archives, as well as ways to dig into the archive
+to see all the resources involved in the HTTP transaction.
 
-Things you may want to cover:
+I took a TDD approach to building the app, essentially just copy-
+pasting important parts of the spec into an executable test file.
+I was unable to encapsulate everything I did into tests, but I think I
+did a pretty good job of specifying most things.
 
-* Ruby version
+Everything you need to get into the meat of the assignment is in
+`spec/acceptance/acceptance_spec.rb`. I did write some unit tests in
+`spec/features/upload_manager_spec.rb`, `spec/models/harfile_spec.rb`,
+and `spec/validators/har_validator_spec.rb`, but the real meat is the
+acceptance specs.
 
-* System dependencies
+I ran into one bug, apparently when you do file imports in Rails, it only
+uses ASCII encoding. You can see my aborted attempt at a test-after
+approach for the bug in `spec/bugs/utf8_bug_spec.rb`. Didn't work very
+well.
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+Everything else was pretty straightforward. I wanted to prettify the
+JSON output so I searched on how to do it and found a standard library
+method, which didn't work until I thought to use `pre` tags.
